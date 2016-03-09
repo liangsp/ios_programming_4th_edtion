@@ -31,8 +31,8 @@
 
 - (instancetype)initWithStyle:(UITableViewStyle)style
 {
-    //return [self init];
-    return [super initWithStyle:UITableViewStylePlain];
+    return [self init];
+    //return [super initWithStyle:UITableViewStylePlain];
 }
 
 - (void)viewDidLoad
