@@ -13,6 +13,8 @@
 
 @interface BNRItemsViewController ()
 
+@property (nonatomic, strong) IBOutlet UIView *headerView;
+
 @end
 
 @implementation BNRItemsViewController
@@ -21,9 +23,9 @@
 {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        for (int i= 0; i < 5; ++i) {
-            [[BNRItemStore shareStore] createItem];
-        };
+//        for (int i= 0; i < 5; ++i) {
+//            [[BNRItemStore shareStore] createItem];
+//        };
     }
     
     return self;
@@ -41,13 +43,16 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
+    UIView *header = self.headerView;
+    [self.tableView setTableHeaderView:header];
+#if defined(BRONZE_CHANGE)
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
     
-    //self.tableView.rowHeight = 60;
+    self.tableView.rowHeight = 60;
     
     self.tableView.sectionFooterHeight = 60;
     self.tableView.sectionHeaderHeight = 60;
-    
+#endif
     // Uncomment the following line to preserve selection between presentations.
     //self.clearsSelectionOnViewWillAppear = NO;
     
@@ -58,6 +63,51 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addNewItem:(id)sender
+{
+    BNRItem *newItem = [[BNRItemStore shareStore] createItem];
+    NSInteger lastRow = [[[BNRItemStore shareStore] allItems] indexOfObject:newItem];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (IBAction)toggleEditingMode:(id)sender
+{
+    if (self.isEditing) {
+        [sender setTitle:@"Edit" forState: UIControlStateNormal];
+        [self setEditing:NO animated:YES];
+    }
+    else {
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        [self setEditing:YES animated:YES];
+    }
+}
+
+- (UIView *)headerView
+{
+    if (!_headerView) {
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    
+    return _headerView;
+}
+
+-  (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (UITableViewCellEditingStyleDelete == editingStyle) {
+        NSArray *items = [[BNRItemStore shareStore] allItems];
+        BNRItem *item = items[indexPath.row];
+        [[BNRItemStore shareStore] removeItem:item];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    [[BNRItemStore shareStore] moveItemAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
 #pragma mark - Table view data source
@@ -123,6 +173,7 @@
     return cell;
 }
 
+#if defined(BRONZE_CHANGE)
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *sectionTitle;
@@ -138,7 +189,7 @@
         default:
             break;
     }
-    
+
     return sectionTitle;
 }
 
@@ -167,7 +218,7 @@
     
     return header;
 }
-
+#endif
 
 /*
 // Override to support conditional editing of the table view.

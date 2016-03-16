@@ -9,7 +9,7 @@
 #ifndef BNR_Def_h
 #define BNR_Def_h
 
-#define BRONZE_CHANGE 1
+//#define BRONZE_CHANGE
 
 
 #endif /* BNR_Def_h */

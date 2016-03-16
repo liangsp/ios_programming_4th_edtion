@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E00E8F01C99ABA4001F98DB /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E00E8EF1C99ABA4001F98DB /* HeaderView.xib */; };
 		4E0B91871C8F00B3007C88DA /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B91861C8F00B3007C88DA /* BNRItem.m */; };
 		4E0B918A1C8F0151007C88DA /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0B91891C8F0151007C88DA /* BNRItemStore.m */; };
 		4ECB110F1C8DABC300DFB072 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB110E1C8DABC300DFB072 /* main.m */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E00E8EF1C99ABA4001F98DB /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		4E0B91851C8F00B3007C88DA /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
 		4E0B91861C8F00B3007C88DA /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		4E0B91881C8F0151007C88DA /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				4ECB11111C8DABC300DFB072 /* BNRAppDelegate.m */,
 				4ECB113A1C8DAC7600DFB072 /* BNRItemsViewController.h */,
 				4ECB113B1C8DAC7600DFB072 /* BNRItemsViewController.m */,
+				4E00E8EF1C99ABA4001F98DB /* HeaderView.xib */,
 				4E0B91851C8F00B3007C88DA /* BNRItem.h */,
 				4E0B91861C8F00B3007C88DA /* BNRItem.m */,
 				4E0B91881C8F0151007C88DA /* BNRItemStore.h */,
@@ -253,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E00E8F01C99ABA4001F98DB /* HeaderView.xib in Resources */,
 				4ECB11141C8DABC300DFB072 /* Assets.xcassets in Resources */,
 				4ECB11171C8DABC300DFB072 /* LaunchScreen.storyboard in Resources */,
 			);
