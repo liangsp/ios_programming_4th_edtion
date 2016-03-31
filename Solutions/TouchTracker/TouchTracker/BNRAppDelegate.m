@@ -1,13 +1,13 @@
 //
 //  BNRAppDelegate.m
-//  Homepwner
+//  TouchTracker
 //
-//  Created by 梁世平 on 16/3/7.
-//  Copyright © 2016年 Big Nerd Ranch. All rights reserved.
+//  Created by 梁世平 on 16/3/20.
+//  Copyright © 2016年 shiping. All rights reserved.
 //
 
 #import "BNRAppDelegate.h"
-#import "BNRItemsViewController.h"
+#import "BNRDrawViewController.h"
 
 @interface BNRAppDelegate ()
 
@@ -18,14 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
+    BNRDrawViewController *dvc = [[BNRDrawViewController alloc] init];
+    self.window.rootViewController = dvc;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    BNRItemsViewController *itemsVC = [[BNRItemsViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemsVC];
-    self.window.rootViewController = navController;
-
     return YES;
 }
 
