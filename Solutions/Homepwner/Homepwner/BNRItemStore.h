@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class BNRItem;
+@class NSManagedObject;
 
 @interface BNRItemStore : NSObject
 
@@ -18,5 +19,9 @@
 - (BNRItem *)createItem;
 - (void)removeItem: (BNRItem *)item;
 - (void)moveItemAtIndex: (NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
+- (BOOL)saveChanges;
+- (NSArray *)allAssetTypes;
+- (void)createAssetWithName:(NSString *)assetName;
+- (void)removeAssetType:(NSManagedObject *)asset;
 
 @end

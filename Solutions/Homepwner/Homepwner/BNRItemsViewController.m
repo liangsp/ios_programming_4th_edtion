@@ -9,10 +9,12 @@
 #import "BNRItemsViewController.h"
 #import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "BNRImageStore.h"
+#import "BNRImageViewController.h"
 #import "BNR_Def.h"
 
-@interface BNRItemsViewController ()
-
+@interface BNRItemsViewController () <UIPopoverControllerDelegate>
+@property (nonatomic, strong) UIPopoverController *imagePopover;
 @end
 
 @implementation BNRItemsViewController
@@ -22,7 +24,8 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         UINavigationItem *navItem = self.navigationItem;
-        navItem.title = @"Homepwner";
+        
+        navItem.title = NSLocalizedString(@"Homepwer", @"Name of application");
         
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
@@ -31,6 +34,11 @@
         navItem.rightBarButtonItem = bbi;
         
         navItem.leftBarButtonItem = self.editButtonItem;
+        
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        
+        //注册当前区域设置发生变化的通知
+        [nc addObserver:self selector:@selector(localeChangeed:) name:NSCurrentLocaleDidChangeNotification object:nil];
     }
     
     return self;
@@ -46,7 +54,10 @@
 {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    UINib *nib = [UINib nibWithNibName:@"BNRItemCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"BNRItemCell"];
+    
+//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     
 #if defined(BRONZE_CHANGE)
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
@@ -78,17 +89,37 @@
 - (IBAction)addNewItem:(id)sender
 {
     BNRItem *newItem = [[BNRItemStore shareStore] createItem];
-    NSInteger lastRow = [[[BNRItemStore shareStore] allItems] indexOfObject:newItem];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+//    NSInteger lastRow = [[[BNRItemStore shareStore] allItems] indexOfObject:newItem];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    
+    BNRDetailViewController *detailVC = [[BNRDetailViewController alloc] initForNewItem:YES];
+    
+    detailVC.item = newItem;
+    
+    detailVC.dismissBlock = ^{
+        [self.tableView reloadData];
+    };
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:detailVC];
+    
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self presentViewController:navController animated:YES completion:nil];;
 }
 
+#pragma mark - Notification
+- (void)localeChanged:(NSNotification *)note
+{
+    [self.tableView reloadData];
+}
 
 #pragma mark - UITableViewDelegate protocol
 
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return @"Remove";
+    NSString *removeString = NSLocalizedString(@"Remove", @"Table cell remove text");
+    return removeString;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
@@ -111,7 +142,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+//    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] initForNewItem:NO];
     
     NSArray *items = [[BNRItemStore shareStore] allItems];
     BNRItem *selectItem = items[indexPath.row];
@@ -150,7 +182,8 @@
     NSArray *arr = [[[BNRItemStore shareStore] allItems] filteredArrayUsingPredicate:predicate];
     return [arr count];
 #else
-    return [[[BNRItemStore shareStore] allItems] count] + 1;
+    NSUInteger count = [[[BNRItemStore shareStore] allItems] count];
+    return count;
 #endif
 }
 
@@ -192,8 +225,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+//                                                            forIndexPath:indexPath];
+    
+    // 获取BNRItemCell对象，返回的可能是现有的对象，也可能是新创建的对象
+    BNRItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BNRItemCell"
                                                             forIndexPath:indexPath];
+    
 #if defined(BRONZE_CHANGE)
     
     NSPredicate *predicate;
@@ -210,18 +248,70 @@
     
 #else
     
-    if (indexPath.row == [[[BNRItemStore shareStore] allItems] count]) {
-        cell.textLabel.text = @"No more items!";
-        return cell;
-    }
+//    NSUInteger row = indexPath.row;
+//    NSUInteger lastRow = [[[BNRItemStore shareStore] allItems] count];
+//    if (indexPath.row == [[[BNRItemStore shareStore] allItems] count]) {
+//        cell.textLabel.text = @"No more items!";
+//        cell.valueLabel.text = @"";
+//        cell.userInteractionEnabled = NO;
+//        return cell;
+//    }
+    
     // Configure the cell...
     NSArray *aItems = [[BNRItemStore shareStore] allItems];
     BNRItem *item = aItems[indexPath.row];
+//    cell.textLabel.text = item.description;
     
-    cell.textLabel.text = [item description];
+    //根据BNRItem对象设置BNRItemCell对象
+    cell.textLabel.text = @"";
+    cell.nameLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
     
+    //本地化
+    static NSNumberFormatter *currencyFormatter = nil;
+    if (currencyFormatter == nil)
+    {
+        currencyFormatter = [[NSNumberFormatter alloc] init];
+        currencyFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    }
+    //cell.valueLabel.text = [NSString stringWithFormat:@"$%d", item.valueInDollars];
+    cell.valueLabel.text = [currencyFormatter stringFromNumber: @(item.valueInDollars)];
+
+    cell.thumbnailView.image = item.thumbnail;
+    
+        
+    __weak BNRItemCell *weakCell = cell;
+    cell.actionBlock = ^{
+        NSLog(@"Going to show image for %@", item);
+        BNRItemCell *strongCell = weakCell;
+        
+        if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            NSString *itemKey = item.itemKey;
+            
+            // 如果BNRItem对象没有图片，就直接返回
+            UIImage *img = [[BNRImageStore sharedStore] imageForKey:itemKey];
+            if (!img) {
+                return;
+            }
+            
+            CGRect rect = [self.view convertRect:strongCell.thumbnailView.bounds fromView:strongCell.thumbnailView];
+            
+            BNRImageViewController *ivc = [[BNRImageViewController alloc] init];
+            ivc.image = img;
+            
+            self.imagePopover = [[UIPopoverController alloc] initWithContentViewController:ivc];
+            self.imagePopover.delegate = self;
+            self.imagePopover.popoverContentSize = CGSizeMake(600, 600);
+            [self.imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
+    };
 #endif
     return cell;
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.imagePopover = nil;
 }
 
 #if defined(BRONZE_CHANGE)

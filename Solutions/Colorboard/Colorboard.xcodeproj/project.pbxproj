@@ -1,0 +1,339 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E81A1DF1D28FF3F0045AED9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E81A1DE1D28FF3F0045AED9 /* main.m */; };
+		4E81A1E21D28FF3F0045AED9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E81A1E11D28FF3F0045AED9 /* AppDelegate.m */; };
+		4E81A1E41D28FF3F0045AED9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E81A1E31D28FF3F0045AED9 /* Assets.xcassets */; };
+		4E81A1E71D28FF3F0045AED9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E81A1E51D28FF3F0045AED9 /* LaunchScreen.storyboard */; };
+		4E81A1EF1D28FF950045AED9 /* Colorboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E81A1EE1D28FF950045AED9 /* Colorboard.storyboard */; };
+		4E81A1F21D2914240045AED9 /* BNRColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E81A1F11D2914240045AED9 /* BNRColorViewController.m */; };
+		4E81A1F51D2935840045AED9 /* BNRPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E81A1F41D2935840045AED9 /* BNRPaletteViewController.m */; };
+		4E81A1F81D2936E90045AED9 /* BNRColorDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E81A1F71D2936E90045AED9 /* BNRColorDescription.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4E81A1DA1D28FF3F0045AED9 /* Colorboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colorboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E81A1DE1D28FF3F0045AED9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E81A1E01D28FF3F0045AED9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E81A1E11D28FF3F0045AED9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E81A1E31D28FF3F0045AED9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4E81A1E61D28FF3F0045AED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4E81A1E81D28FF3F0045AED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E81A1EE1D28FF950045AED9 /* Colorboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Colorboard.storyboard; path = Colorboard/Colorboard.storyboard; sourceTree = "<group>"; };
+		4E81A1F01D2914240045AED9 /* BNRColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRColorViewController.h; path = Colorboard/BNRColorViewController.h; sourceTree = "<group>"; };
+		4E81A1F11D2914240045AED9 /* BNRColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRColorViewController.m; path = Colorboard/BNRColorViewController.m; sourceTree = "<group>"; };
+		4E81A1F31D2935840045AED9 /* BNRPaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRPaletteViewController.h; path = Colorboard/BNRPaletteViewController.h; sourceTree = "<group>"; };
+		4E81A1F41D2935840045AED9 /* BNRPaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRPaletteViewController.m; path = Colorboard/BNRPaletteViewController.m; sourceTree = "<group>"; };
+		4E81A1F61D2936E90045AED9 /* BNRColorDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRColorDescription.h; path = Colorboard/BNRColorDescription.h; sourceTree = "<group>"; };
+		4E81A1F71D2936E90045AED9 /* BNRColorDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRColorDescription.m; path = Colorboard/BNRColorDescription.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E81A1D71D28FF3F0045AED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E81A1D11D28FF3F0045AED9 = {
+			isa = PBXGroup;
+			children = (
+				4E81A1FB1D2967EA0045AED9 /* model */,
+				4E81A1F91D29677A0045AED9 /* view */,
+				4E81A1FA1D2967DB0045AED9 /* controller */,
+				4E81A1DC1D28FF3F0045AED9 /* Colorboard */,
+				4E81A1DB1D28FF3F0045AED9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4E81A1DB1D28FF3F0045AED9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E81A1DA1D28FF3F0045AED9 /* Colorboard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E81A1DC1D28FF3F0045AED9 /* Colorboard */ = {
+			isa = PBXGroup;
+			children = (
+				4E81A1E81D28FF3F0045AED9 /* Info.plist */,
+				4E81A1E01D28FF3F0045AED9 /* AppDelegate.h */,
+				4E81A1E11D28FF3F0045AED9 /* AppDelegate.m */,
+				4E81A1E31D28FF3F0045AED9 /* Assets.xcassets */,
+				4E81A1DD1D28FF3F0045AED9 /* Supporting Files */,
+			);
+			path = Colorboard;
+			sourceTree = "<group>";
+		};
+		4E81A1DD1D28FF3F0045AED9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E81A1DE1D28FF3F0045AED9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E81A1F91D29677A0045AED9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4E81A1E51D28FF3F0045AED9 /* LaunchScreen.storyboard */,
+				4E81A1EE1D28FF950045AED9 /* Colorboard.storyboard */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		4E81A1FA1D2967DB0045AED9 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4E81A1F01D2914240045AED9 /* BNRColorViewController.h */,
+				4E81A1F11D2914240045AED9 /* BNRColorViewController.m */,
+				4E81A1F31D2935840045AED9 /* BNRPaletteViewController.h */,
+				4E81A1F41D2935840045AED9 /* BNRPaletteViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		4E81A1FB1D2967EA0045AED9 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4E81A1F61D2936E90045AED9 /* BNRColorDescription.h */,
+				4E81A1F71D2936E90045AED9 /* BNRColorDescription.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E81A1D91D28FF3F0045AED9 /* Colorboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E81A1EB1D28FF3F0045AED9 /* Build configuration list for PBXNativeTarget "Colorboard" */;
+			buildPhases = (
+				4E81A1D61D28FF3F0045AED9 /* Sources */,
+				4E81A1D71D28FF3F0045AED9 /* Frameworks */,
+				4E81A1D81D28FF3F0045AED9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Colorboard;
+			productName = Colorboard;
+			productReference = 4E81A1DA1D28FF3F0045AED9 /* Colorboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E81A1D21D28FF3F0045AED9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BNR;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "shiping liang";
+				TargetAttributes = {
+					4E81A1D91D28FF3F0045AED9 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 4E81A1D51D28FF3F0045AED9 /* Build configuration list for PBXProject "Colorboard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4E81A1D11D28FF3F0045AED9;
+			productRefGroup = 4E81A1DB1D28FF3F0045AED9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E81A1D91D28FF3F0045AED9 /* Colorboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E81A1D81D28FF3F0045AED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E81A1EF1D28FF950045AED9 /* Colorboard.storyboard in Resources */,
+				4E81A1E41D28FF3F0045AED9 /* Assets.xcassets in Resources */,
+				4E81A1E71D28FF3F0045AED9 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E81A1D61D28FF3F0045AED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E81A1E21D28FF3F0045AED9 /* AppDelegate.m in Sources */,
+				4E81A1F51D2935840045AED9 /* BNRPaletteViewController.m in Sources */,
+				4E81A1F81D2936E90045AED9 /* BNRColorDescription.m in Sources */,
+				4E81A1DF1D28FF3F0045AED9 /* main.m in Sources */,
+				4E81A1F21D2914240045AED9 /* BNRColorViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4E81A1E51D28FF3F0045AED9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E81A1E61D28FF3F0045AED9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			path = Colorboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E81A1E91D28FF3F0045AED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4E81A1EA1D28FF3F0045AED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E81A1EC1D28FF3F0045AED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Colorboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shiping.Colorboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4E81A1ED1D28FF3F0045AED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Colorboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shiping.Colorboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E81A1D51D28FF3F0045AED9 /* Build configuration list for PBXProject "Colorboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E81A1E91D28FF3F0045AED9 /* Debug */,
+				4E81A1EA1D28FF3F0045AED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E81A1EB1D28FF3F0045AED9 /* Build configuration list for PBXNativeTarget "Colorboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E81A1EC1D28FF3F0045AED9 /* Debug */,
+				4E81A1ED1D28FF3F0045AED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E81A1D21D28FF3F0045AED9 /* Project object */;
+}
